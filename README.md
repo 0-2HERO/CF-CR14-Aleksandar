@@ -6,7 +6,9 @@
 
 -On the details page, you need to use google maps API to show the location of the offer (remember that your database should have the columns longitude and latitude) 
 
--From the database that was built, create a display API. This API is supposed to return a JSON object with all information from all offers from the agency. A single PHP file displayAll.php is necessary for this task. There should be a link in the home page that would lead to the API. Please note that the data from the database must be converted to a JSON type which is raw data, therefore no formatting is required. 
+-From the database that was built, create a display API. This API is supposed to return a JSON object with all information from all offers from the agency. 
+  A single PHP file  displayAll.php is necessary for this task. There should be a link in the home page that would lead to the API.
+  The data from the database must  be converted to a JSON type which is raw data, therefore no formatting is required. 
 
 
  
