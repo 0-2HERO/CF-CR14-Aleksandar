@@ -93,7 +93,7 @@ tr {
                             </tr>
                             <tr>
                                 <th>Description</th>
-                                <td><textarea class='form-control' type="text" name="desc"
+                                <td><textarea class='form-control' type="text" name="description"
                                         placeholder="Max. 500 characters" rows="5"
                                         value="<?php echo $description ?>"><?php echo $description ?></textarea>
                                 </td>
@@ -110,7 +110,7 @@ tr {
                             </tr>
                             <th></th>
                             <input type="hidden" name="id" value="<?php echo $id ?>" />
-                            <input type="hidden" name="picture" value="<?php echo $image ?>" />
+                            <input type="hidden" name="picture" value="<?php echo $picture ?>" />
                             <td><button class="btn btn-primary me-5" type="submit">Save Changes</button><a
                                     href="index.php" class="btn btn-danger">Back</a></td>
                             </tr>

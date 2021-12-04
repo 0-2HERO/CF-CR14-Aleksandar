@@ -6,7 +6,7 @@ $offers = ''; //this variable will hold the body for the table
 if (mysqli_num_rows($result)  > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         $offers .= "
-         <div class='card shadow-sm  ms-3' style='width: 18rem;'>
+         <div class='card  border-0' style='width: 20rem;'>
          <img class='card-img-top' src='pictures/" . $row['picture'] . "'>
          <div class='card-body'>
            <h5 class='card-title fw-light'>WHAT IS AUSTRIA ABOUT..</h5>
@@ -44,18 +44,19 @@ mysqli_close($connect);
     <header>
         <?php require_once 'components/navbar.php' ?>
     </header>
-    <div class="px-4 hero pt-5 mb-5d-flex align-items-left justify-content-left border-bottom ">
-        <div class="page-header text-left ">
-            <h1 class="display-1 fw-lighter mb-0">Adventure</h1>
-            <h2 class="fw-light display-4 mt-0 mb-5 fw-lighter" id="header2">awaits..</h2>
-            <button class="btn btn-sm btn-outline-dark">Contact Us</button>
+    <div class="jumbotron p-3 p-md-5 text-white rounded" id="jumbo">
+        <div class="col-md-6 px-0 mt-5">
+        <br>       <br>        <br>        <br>        <br>        <br>        <br>        <br> 
+          <h1 class="display-4 font-italic" id="first">Advenure awaits...</h1>
+          <p class="lead my-3" id="second">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
+          <p class="lead mb-0" id="third"><a href="#" class="text-white font-weight-bold">Contact us...</a></p>
         </div>
-    </div>
+      </div>
     <div class="d-flex justify-content-center mt-5 mb-5">
         <h2 class="fw-lighter">Travel offers</h2>
 
     </div>
-    <div class="d-flex flex-wrap"><?= $offers; ?></div>
+    <div class="row justify-content-around "><?= $offers; ?></div>
 
     <?php require_once 'components/footer.php' ?>
 

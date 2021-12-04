@@ -21,7 +21,7 @@ if ($_GET['id']) {
 //weather
 require_once 'RESTful.php';
 
-$city = "$longitude,$latitude";
+$city = "$latitude, $longitude";
 $url = 'https://api.darksky.net/forecast/e329256a741df2bcccffedd3600287c2/' . $city .
     '?exclude=minutely,hourly,daily,alerts,flags';
 $result = curl_get($url);
@@ -30,7 +30,7 @@ $fahrenheit = $weather->currently->temperature;
 $celsius = round(($fahrenheit - 32) * (5 / 9), 2);
 
 $whetherbody = "
-<div class='card text-center text-white bg-primary' style='width: 18rem; font-size: 1.2rem'>
+<div class='card text-center text-white bg-dark' style='width: 36rem; font-size: 1.50rem'>
     <p class='card-title'> {$weather->timezone} </p>
     <div class='card-body'>
         <p class='card-text'> {$weather->currently->summary} </p>
@@ -56,6 +56,9 @@ $whetherbody = "
         min-height: 250px;
     }
 
+    .det{
+        margin-top: 10rem;
+    }
 
 
     #weather {
@@ -72,8 +75,11 @@ $whetherbody = "
         <?php require_once 'components/navbar.php' ?>
     </header>
 
-
-    <div class="container mt-5">
+    <div class="container det">
+        <h2>Offer Detail</h2>
+        <hr>  
+    </div>
+    <div class="container mt-5" id="detail">
         <div class="row g-5">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card border-0">

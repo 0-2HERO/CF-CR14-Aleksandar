@@ -1,17 +1,8 @@
 <?php
-include_once 'db_connect.php';
-include_once 'file_upload.php';
+require_once 'db_connect.php';
+require_once 'file_upload.php';
 
 
-
-$id = $_POST["id"];
-$locationName = $_POST["locationName"];
-$price = $_POST["price"];
-$description = $_POST["description"];
-$longitude = $_POST["longitude"];
-$latitude = $_POST["latitude"];
-$picture = $_POST['picture'];
-$uploadError = '';
 
 
 
@@ -19,6 +10,11 @@ if ($_POST) {
     $locationName = $_POST['locationName'];
     $price = $_POST['price'];
     $id = $_POST['id'];
+    $description = $_POST["description"];
+    $longitude = $_POST["longitude"];
+    $latitude = $_POST["latitude"];
+    $picture = $_POST['picture'];
+
 
 
     //variable for upload pictures errors is initialized
@@ -26,10 +22,10 @@ if ($_POST) {
 
     $picture = file_upload($_FILES['picture']); //file_upload() called  
     if ($picture->error === 0) {
-        ($_POST["picture"] == "travel.jpeg") ?: unlink("../pictures/$_POST[picture]");
-        $sql = "UPDATE trips SET locationName = '$locationName', price = '$price', description = '$description', longitude = '$longitude', latitude = '$latitude' WHERE id = {$id}";
-    } else {
+        ($_POST["picture"] == "vienna.jpeg") ?: unlink("../pictures/$_POST[picture]");
         $sql = "UPDATE trips SET picture = '$picture->fileName', locationName = '$locationName', price = '$price', description = '$description', longitude = '$longitude', latitude = '$latitude' WHERE id = {$id}";
+    } else {
+        $sql = "UPDATE trips SET locationName = '$locationName', price = '$price', description = '$description', longitude = '$longitude', latitude = '$latitude' WHERE id = {$id}";
     }
     if (mysqli_query($connect, $sql) === TRUE) {
         $class = "success";
@@ -53,7 +49,7 @@ if ($_POST) {
 <head>
     <meta charset="UTF-8">
     <title>Update</title>
-    <?php require_once '../components/bootccs.php' ?>
+  
 </head>
 
 <body>
